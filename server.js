@@ -4395,6 +4395,8 @@ if( yesnode ){ //:-------------------------------------------://
                                                                  // [251]
     const d_artgirl_uniform =(` //////////////////////////////// // [251]
                                                                  // [251]
+    precision highp usampler2D;  //:#_SAMPLER_PRECISION_FIX_#:// // [251]
+                                                                 // [251]
     UNI U32 d_tik     ;  //: TICKER   : Logic Frame      ://     // [251]
     UNI UV4 d_vpc     ;  //: Viewport : CANVAS/CLIENT    ://     // [251]
     UNI UV4 d_vp0     ;  //: Viewport : DEST/SCREEN      ://     // [251]
@@ -15530,6 +15532,9 @@ TAG[ tag_section | tag-section | tag_section ]END -------------- // [088]
     [249] : Stubbed In The Rough Pipeline For     :::::::::::::  // [250][249]
           : The Pre-Processing Of Shader Strings. :::::::::::::  // [250][249]  
 
+    [250] : Injecting large uint32 array into shader ::::::::::  // [251][250]
+          : string using pre-processing functions.   ::::::::::  // [251][250]
+
 *** *************************************** CHANGE_LOG [CLB] ***    [088]
 *** *************************************** CHANGE_HISTORY _ ***    [088]
 *** *************************************** MISC_DELTA_NOTES **/
@@ -22504,17 +22509,29 @@ g25_set ||10 |11 |12 |13 |14 ||  "grid cell indexes" and       :   [163][087]
         uv3_var ===can_be===> u_var                           |  // [251]
         uv4_var ===can_be===> u_var                           |  // [251]
     +---------------------------------------------------------+  // [251]
+                                                                 // [251]
+    #_SAMPLER_PRECISION_FIX_#:--------------------------------+  // [251]
+                                                              |  // [251]
+        ERROR: 0:61: 'usampler2D' : No precision specified    |  // [251]
+                                                              |  // [251]
+        ADD TO SHADER TO GET RID OF ERROR :                   |  // [251]
+        -----------------------------------                   |  // [251]
+        precision highp usampler2D; //:#_SAMPLER_PRECISION_#://  // [251]
+                                                              |  // [251]
+        SEE[ _SAMPLER_PRECISION_ ]FOR_MORE_NOTES              |  // [251]
+                                                              |  // [251]
+    +---------------------------------------------------------+  // [251]
     
-
-
 
 *** ******************************************************** **/         
 //:==========================:HASHTAG_OR_ATTED_COMMENTS:[085]://         
 //:THIS_COMMITS_DELTA_NOTE:[085]:============================://         
 /** ******************************************************** ***         
             
-    [250] : Injecting large uint32 array into shader ::::::::::  // [250]
-          : string using pre-processing functions.   ::::::::::  // [250]
+    [251] : 1 : Created Shader Macros Code Injection Source      // [251]
+          : 2 : Created Uniform Vars  Code Injection Source      // [251]
+          ( SEE[ d _ artgirl _ ( s m a c r o s ) ] )             // [251]
+          ( SEE[ d _ artgirl _ ( u n i f o r m ) ] )             // [251]
 
 *** ******************************************************** **/
 //:============================:THIS_COMMITS_DELTA_NOTE:[085]://
